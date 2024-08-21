@@ -1,20 +1,18 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import Menu from './components/Menu';
 
-
-function App() {
-return(
+const RoutesComponent = () => {
+  return (
     <Router>
-        <div className='App'>
-            <Navbar/>
-            <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/menu" element={<Menu />} />
-            </Routes>
-            <Footer/>
-        </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/menu" element={<Menu />} />
+        {/* Add more routes here */}
+      </Routes>
     </Router>
-);
-}
-export default App;
+  );
+};
+
+export default RoutesComponent;
