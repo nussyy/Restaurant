@@ -1,39 +1,58 @@
 import React from 'react';
+import { Box, Container, Grid, Typography, Link, IconButton } from '@mui/material';
+import { Facebook, Twitter, Instagram } from '@mui/icons-material';
+import './Footer.css'; // Import your CSS file
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-container">
-        <div className="footer-content">
-          <div className="footer-section">
-            <h4>Contact Us</h4>
-            <p>123 Main Street, Colombo, Sri Lanka</p>
-            <p>Email: info@abcrestaurant.com</p>
-            <p>Phone: +94 123 456 789</p>
-          </div>
-          <div className="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/menu">Menu</a></li>
-              <li><a href="/offers">Offers</a></li>
-              <li><a href="/reservations">Reservations</a></li>
-            </ul>
-          </div>
-          <div className="footer-section">
-            <h4>Follow Us</h4>
-            <div className="social-links">
-              <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
-              <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-              <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-            </div>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
+    <Box component="footer" className="footer">
+      <Container className="footer-container">
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={4} className="footer-section">
+          
+            <Typography variant="body2">
+             118/24 A Abeysekara Road, Kawdana Dehiwela
+            </Typography>
+            <Typography variant="body2">
+              Email: <Link href="mailto:info@abcrestaurant.com" color="inherit">info@abcrestaurant.com</Link>
+            </Typography>
+            <Typography variant="body2">
+              Phone: +94 768419267
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={4} className="footer-section">
+            
+            <Box>
+              <Link href="/" color="inherit" underline="hover">Home</Link>
+              <Link href="/menu" color="inherit" underline="hover">Menu</Link>
+              <Link href="/offers" color="inherit" underline="hover">Offers</Link>
+              <Link href="/reservations" color="inherit" underline="hover">Reservations</Link>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={4} className="footer-section">
+            <Typography variant="h6" gutterBottom>
+              Follow Us
+            </Typography>
+            <Box className="social-links">
+              <IconButton href="#" color="inherit" aria-label="Facebook">
+                <Facebook />
+              </IconButton>
+              <IconButton href="#" color="inherit" aria-label="Twitter">
+                <Twitter />
+              </IconButton>
+              <IconButton href="#" color="inherit" aria-label="Instagram">
+                <Instagram />
+              </IconButton>
+            </Box>
+          </Grid>
+        </Grid>
+        <Box className="footer-bottom">
+          <Typography variant="body2">
+            &copy; 2024 ABC Restaurant. All rights reserved.
+          </Typography>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 // import Navbar from './Navbar';
 // import Header from './Header';
-// import Footer from './Footer';
+
+import Footer from '../Footer'; 
 import './HomePage.css';
 
 class HomePage extends Component {
@@ -37,7 +38,7 @@ class HomePage extends Component {
             <p>Explore our restaurant ambiance and dishes in our gallery section.</p>
           </section>
         </main>
-        {/* <Footer /> */}
+ <Footer />
       </div>
     );
   }
