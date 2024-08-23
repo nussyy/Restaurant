@@ -1,0 +1,29 @@
+.homepage {
+    font-family: 'Times New Roman', serif;
+  }
+  
+  .overview, .services, .offers, .gallery {
+    margin: 20px;
+    padding: 20px;
+    background-color: #b11616;
+    border-radius: 8px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  ul li {
+    padding: 5px 0;
+  }
+  
