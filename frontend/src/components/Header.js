@@ -22,7 +22,6 @@ const Header = ({ userRole, isAuthenticated, onLogout }) => {
                     <li><a href="/services">Services</a></li>
                     <li><a href="/menu">Menu</a></li>
                     <li><a href="/offers">Offers</a></li>
-                    <li><a href="/reservations">Reservations</a></li>
                     <li><a href="/contact">Contact</a></li>
                     {isAuthenticated && (
             <>
