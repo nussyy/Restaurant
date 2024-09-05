@@ -8,24 +8,17 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 
-import jakarta.persistence.*;
 
 @Entity
-@Table(name = "facilities")
-public class Facility {
+@Table(name = "categories")
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long facilityId;
+    private Long categoryId;
 
-    @ManyToOne
-    @JoinColumn(name = "restaurant_id", nullable = false)
-    private Restaurant restaurant;
-
-    @Column(nullable = false)
-    private String facilityName;
-
-    private String description;
+    @Column(nullable = false, unique = true)
+    private String categoryName;
 
     // Getters and Setters
 }

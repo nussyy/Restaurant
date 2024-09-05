@@ -1,10 +1,6 @@
 package com.example.restaurant_app.entity;
 
 
-
-import jakarta.persistence.*;
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,23 +9,27 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+
 @Entity
-@Table(name = "queries")
-public class Query {
+@Table(name = "shift_schedule")
+public class ShiftSchedule {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long queryId;
+    private Long shiftId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "staff_id", nullable = false)
+    private User staff;
 
-    @Column(nullable = false)
-    private String queryText;
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id", nullable = false)
+    private Restaurant restaurant;
 
-    private String response;
-    private String queryStatus;
+    private LocalDateTime shiftStart;
+    private LocalDateTime shiftEnd;
 
     @Column(name = "created_at", updatable = false, nullable = false)
     private LocalDateTime createdAt;

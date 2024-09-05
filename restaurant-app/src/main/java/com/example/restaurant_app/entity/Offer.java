@@ -1,10 +1,6 @@
 package com.example.restaurant_app.entity;
 
 
-
-import jakarta.persistence.*;
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,26 +9,28 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 
+import jakarta.persistence.*;
+import java.time.LocalDate;
+
 @Entity
-@Table(name = "queries")
-public class Query {
+@Table(name = "offers")
+public class Offer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long queryId;
+    private Long offerId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "restaurant_id", nullable = false)
+    private Restaurant restaurant;
 
     @Column(nullable = false)
-    private String queryText;
+    private String offerName;
 
-    private String response;
-    private String queryStatus;
-
-    @Column(name = "created_at", updatable = false, nullable = false)
-    private LocalDateTime createdAt;
+    private String description;
+    private Double discountPercentage;
+    private LocalDate validFrom;
+    private LocalDate validUntil;
 
     // Getters and Setters
 }

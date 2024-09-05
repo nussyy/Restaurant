@@ -14,22 +14,20 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "queries")
-public class Query {
+@Table(name = "notifications")
+public class Notification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long queryId;
+    private Long notificationId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(nullable = false)
-    private String queryText;
-
-    private String response;
-    private String queryStatus;
+    private String notificationType;
+    private String message;
+    private Boolean isRead;
 
     @Column(name = "created_at", updatable = false, nullable = false)
     private LocalDateTime createdAt;

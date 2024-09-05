@@ -3,7 +3,7 @@ package com.example.restaurant_app.entity;
 
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,25 +14,30 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "queries")
-public class Query {
+@Table(name = "menu_items")
+public class MenuItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long queryId;
+    private Long menuItemId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "restaurant_id", nullable = false)
+    private Restaurant restaurant;
 
     @Column(nullable = false)
-    private String queryText;
+    private String name;
 
-    private String response;
-    private String queryStatus;
+    private String description;
 
-    @Column(name = "created_at", updatable = false, nullable = false)
-    private LocalDateTime createdAt;
+    @Column(nullable = false)
+    private BigDecimal price;
+
+    private Boolean available;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     // Getters and Setters
 }
