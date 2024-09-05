@@ -1,5 +1,6 @@
 package com.example.restaurant_app.entity;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,21 +12,15 @@ import jakarta.persistence.Table;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Facilities")
-public class Facility {
+@Table(name = "Permissions")
+public class Permission {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long facilityId;
+    private Long permissionId;
 
-    @ManyToOne
-    @JoinColumn(name = "restaurant_id", nullable = false)
-    private Restaurant restaurant;
-
-    @Column(nullable = false)
-    private String facilityName;
-
-    private String description;
+    @Column(nullable = false, unique = true)
+    private String permissionName;
 
     // Getters and Setters
 }

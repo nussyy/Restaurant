@@ -1,9 +1,9 @@
 package com.example.restaurant_app.entity;
 
 
-
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,27 +12,27 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-
 @Entity
-@Table(name = "Queries")
-public class Query {
+@Table(name = "Order_Items")
+public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long queryId;
+    private Long orderItemId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
+
+    @ManyToOne
+    @JoinColumn(name = "menu_item_id", nullable = false)
+    private MenuItem menuItem;
 
     @Column(nullable = false)
-    private String queryText;
+    private Integer quantity;
 
-    private String response;
-    private String queryStatus;
-
-    @Column(name = "created_at", updatable = false, nullable = false)
-    private LocalDateTime createdAt;
+    @Column(nullable = false)
+    private BigDecimal subtotal;
 
     // Getters and Setters
 }

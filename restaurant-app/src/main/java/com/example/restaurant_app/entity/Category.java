@@ -1,26 +1,24 @@
-// package com.example.restaurant_app.entity;
-// import lombok.Data;
-// import jakarta.persistence.CascadeType;
-// import jakarta.persistence.Entity;
-// import jakarta.persistence.FetchType;
-// import jakarta.persistence.GeneratedValue;
-// import jakarta.persistence.GenerationType;
-// import jakarta.persistence.Id;
-// import jakarta.persistence.OneToMany;
+package com.example.restaurant_app.entity;
 
-// import java.util.List;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-// import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
+import jakarta.persistence.*;
 
-// @Entity
-// @Data
-// public class Category {
-//     @Id
-//     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//     private Long id;
+@Entity
+@Table(name = "Categories")
+public class Category {
 
-//     private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long categoryId;
 
-//     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//     private List<Item> items;
-// }
+    @Column(nullable = false, unique = true)
+    private String categoryName;
+
+    // Getters and Setters
+}

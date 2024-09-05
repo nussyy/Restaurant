@@ -1,5 +1,6 @@
 package com.example.restaurant_app.entity;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,24 +9,25 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 
-import jakarta.persistence.*;
+
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "Facilities")
-public class Facility {
+@Table(name = "discount_codes")
+public class DiscountCode {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long facilityId;
+    private Long discountCodeId;
 
-    @ManyToOne
-    @JoinColumn(name = "restaurant_id", nullable = false)
-    private Restaurant restaurant;
-
-    @Column(nullable = false)
-    private String facilityName;
+    @Column(nullable = false, unique = true)
+    private String code;
 
     private String description;
+    private Double discountPercentage;
+    private LocalDate validFrom;
+    private LocalDate validUntil;
+    private Integer usageLimit;
 
     // Getters and Setters
 }

@@ -8,24 +8,24 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 
+
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Facilities")
-public class Facility {
+@Table(name = "Role_Permissions")
+public class RolePermission {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long facilityId;
+    private Long rolePermissionId;
 
     @ManyToOne
-    @JoinColumn(name = "restaurant_id", nullable = false)
-    private Restaurant restaurant;
+    @JoinColumn(name = "role_id", nullable = false)
+    private UserRole role;
 
-    @Column(nullable = false)
-    private String facilityName;
-
-    private String description;
+    @ManyToOne
+    @JoinColumn(name = "permission_id", nullable = false)
+    private Permission permission;
 
     // Getters and Setters
 }
