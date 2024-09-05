@@ -7,10 +7,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-import jakarta.persistence.*;
+
 
 @Entity
-@Table(name = "Categories")
+@Table(name = "categories")
 public class Category {
 
     @Id

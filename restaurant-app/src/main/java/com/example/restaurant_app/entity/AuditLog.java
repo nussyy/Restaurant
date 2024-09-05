@@ -13,7 +13,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Audit_Log")
+@Table(name = "audit_log")
 public class AuditLog {
 
     @Id

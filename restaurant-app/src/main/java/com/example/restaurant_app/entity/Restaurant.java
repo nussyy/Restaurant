@@ -10,7 +10,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Restaurants")
+@Table(name = "restaurants")
 public class Restaurant {
 
     @Id

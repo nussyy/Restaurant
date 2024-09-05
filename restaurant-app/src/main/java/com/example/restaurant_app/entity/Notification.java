@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "Notifications")
+@Table(name = "notifications")
 public class Notification {
 
     @Id

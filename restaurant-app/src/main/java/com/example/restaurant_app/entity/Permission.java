@@ -9,10 +9,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 
-import jakarta.persistence.*;
+
 
 @Entity
-@Table(name = "Permissions")
+@Table(name = "permissions")
 public class Permission {
 
     @Id

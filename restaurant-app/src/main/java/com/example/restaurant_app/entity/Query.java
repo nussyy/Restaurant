@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "Queries")
+@Table(name = "queries")
 public class Query {
 
     @Id

@@ -13,7 +13,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Shift_Schedule")
+@Table(name = "shift_schedule")
 public class ShiftSchedule {
 
     @Id

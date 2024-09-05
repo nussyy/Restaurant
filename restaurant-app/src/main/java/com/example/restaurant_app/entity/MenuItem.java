@@ -14,7 +14,7 @@ import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name = "Menu_Items")
+@Table(name = "menu_items")
 public class MenuItem {
 
     @Id
