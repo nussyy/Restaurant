@@ -2,14 +2,12 @@ package com.example.restaurant_app.entity;
 
 
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Column;
 import jakarta.persistence.Table;
-import java.time.LocalDateTime;
-
 
 @Entity
 @Table(name = "Restaurants")
@@ -25,14 +23,19 @@ public class Restaurant {
     @Column(nullable = false)
     private String location;
 
-    @Column
-    private String phoneNumber;
+    // Other fields, getters, and setters
 
-    @Column
-    private String email;
+    public Long getRestaurantId() {
+        return restaurantId;
+    }
 
-    @Column(name = "created_at", updatable = false, nullable = false)
-    private LocalDateTime createdAt;
+    public void setRestaurantId(Long restaurantId) {
+        this.restaurantId = restaurantId;
+    }
 
-
+    // Other getters and setters
 }
+
+
+
+
