@@ -8,6 +8,8 @@ import Offer from './components/Offer';
 import Reservations from './components/Reservations';
 import ContactUs from './components/ContactUs';
 import Header from './components/Header';
+import RegistrationForm from './components/Auth/RegistrationForm';
+import Login from './components/Auth/Login';
 
 const RoutesComponent= () => {
     return (
@@ -20,6 +22,8 @@ const RoutesComponent= () => {
                 <Route path="/offers" element={<Offer />} />
                 <Route path="/reservations" element={<Reservations />} />
                 <Route path="/contact" element={<ContactUs />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<RegistrationForm />} />
             </Routes>
         </Router>
     );
