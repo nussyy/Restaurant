@@ -7,7 +7,7 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Category from './Category';
+import Category from './CategoryTile';
 
 const Menu = () => {
   const [categories, setCategories] = useState([]);

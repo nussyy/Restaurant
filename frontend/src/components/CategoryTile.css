@@ -1,0 +1,19 @@
+.category-tile {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .category-tile h3 {
+    margin-top: 10px;
+    font-size: 1.2em;
+  }
+  
+  .category-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  

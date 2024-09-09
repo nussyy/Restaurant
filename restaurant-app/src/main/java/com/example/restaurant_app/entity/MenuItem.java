@@ -5,14 +5,6 @@ package com.example.restaurant_app.entity;
 import jakarta.persistence.*;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-
 @Entity
 @Table(name = "menu_items")
 public class MenuItem {
@@ -35,9 +27,10 @@ public class MenuItem {
     @Column(nullable = false)
     private Boolean available;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+   @ManyToOne(fetch = FetchType.EAGER)
+
     @JoinColumn(name = "category_id", nullable = false)
-    private Category category;
+    private categories category;
 
     // Getters and Setters
     public Long getMenuItemId() {
@@ -88,11 +81,11 @@ public class MenuItem {
         this.available = available;
     }
 
-    public Category getCategory() {
+    public categories getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(categories category) {
         this.category = category;
     }
 }

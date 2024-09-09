@@ -10,6 +10,9 @@ import ContactUs from './components/ContactUs';
 import Header from './components/Header';
 import RegistrationForm from './components/Auth/RegistrationForm';
 import Login from './components/Auth/Login';
+import MenuItem from './components/MenuItem'; 
+import AboutUs from './components/AboutUs';
+
 
 const RoutesComponent= () => {
     return (
@@ -18,7 +21,10 @@ const RoutesComponent= () => {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/services" element={<Service />} />
+                
                 <Route path="/menu" element={<Menu />} />
+                <Route path="/menu/:categoryId" element={<MenuItem />} /> 
+                <Route path="/aboutus" element={<AboutUs/>} /> 
                 <Route path="/offers" element={<Offer />} />
                 <Route path="/reservations" element={<Reservations />} />
                 <Route path="/contact" element={<ContactUs />} />
@@ -30,3 +36,5 @@ const RoutesComponent= () => {
 };
 
 export default RoutesComponent;
+
+

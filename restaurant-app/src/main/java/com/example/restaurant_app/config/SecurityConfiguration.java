@@ -17,10 +17,12 @@ public class SecurityConfiguration {
             .csrf(csrf -> csrf
                 .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))  // Optional CSRF configuration
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/services/**").permitAll()  // Permit access to services endpoint
+                .requestMatchers("/api/services/**").permitAll()  
+                .requestMatchers("/api/categories/**").permitAll() 
+                .requestMatchers("/api/queries/**").permitAll() 
                 .anyRequest().authenticated()  // Secure other endpoints
             )
-            .httpBasic(httpBasic -> httpBasic.disable());  // Use new HttpBasicCustomizer API
+            .httpBasic(httpBasic -> httpBasic.disable());  // Disable HTTP Basic Authentication
 
         return http.build();
     }
