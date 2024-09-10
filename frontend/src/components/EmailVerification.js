@@ -1,24 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import Button from './Button';
 
-const VerifyEmail = () => {
-    const { token } = useParams();
+const EmailVerification = () => {
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
-    useEffect(() => {
-        const verifyEmail = async () => {
-            try {
-                await axios.get(`http://localhost:8080/api/auth/verify?token=${token}`);
-                alert('Email verified successfully!');
-            } catch (error) {
-                console.error(error);
-            }
-        };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('/api/verify-email', { email })
+      .then(response => {
+        setMessage('Verification email sent! Please check your inbox.');
+      })
+      .catch(error => {
+        setMessage('Error sending verification email.');
+      });
+  };
 
-        verifyEmail();
-    }, [token]);
-
-    return <div>Verifying your email...</div>;
+  return (
+    <div className="email-verification">
+      <h2>Email Verification</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <Button type="submit" label="Verify Email" />
+      </form>
+      {message && <p>{message}</p>}
+    </div>
+  );
 };
 
-export default VerifyEmail;
+export default EmailVerification;

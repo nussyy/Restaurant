@@ -1,31 +1,15 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from 'react';
+import Button from './Button';
 
-const MenuItems = ({ categoryId }) => {
-  const [menuItems, setMenuItems] = useState([]);
-
-  useEffect(() => {
-    axios.get(`/api/menu/categories/${categoryId}/items`)
-      .then((response) => {
-        setMenuItems(response.data);
-      })
-      .catch((error) => {
-        console.error("There was an error fetching the menu items!", error);
-      });
-  }, [categoryId]);
-
+const MenuItem = ({ item }) => {
   return (
-    <div className="menu-items">
-      {menuItems.map((item) => (
-        <div key={item.menuItemId} className="menu-item">
-          <h4>{item.name}</h4>
-          <p>{item.description}</p>
-          <p>Price: ${item.price}</p>
-          <p>{item.available ? "Available" : "Unavailable"}</p>
-        </div>
-      ))}
+    <div className="menu-item">
+      <h3>{item.name}</h3>
+      <p>{item.description}</p>
+      <p>Price: ${item.price}</p>
+      <Button label="Add to Cart" onClick={() => alert(`Added ${item.name} to cart`)} />
     </div>
   );
 };
 
-export default MenuItems;
+export default MenuItem;
